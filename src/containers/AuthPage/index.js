@@ -76,7 +76,7 @@ class AuthPage extends React.Component {
 
     // This line is required for the callback url to redirect your user to app
     if (this.props.match.params.authType === 'forgot-password') {
-      set(body, 'url', 'http://localhost:3000/auth/reset-password');
+      set(body, 'url', 'https://evaluatz-accounts.herokuapp.com/auth/reset-password');
     }
 
     request(requestURL, { method: 'POST', body: this.state.value })

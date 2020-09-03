@@ -15,7 +15,7 @@ import './styles.css';
 function SocialLink({ provider }) {
   return (
     <a href={`https://evaluatz-db.herokuapp.com/connect/${provider}`} className="link">
-      <Button type="button" social={provider} style={{ width: '100%' }}>
+      <Button type="button" className={`btn ${provider}`} social={provider} style={{ width: '100%' }}>
         <i className={`fab fa-${provider}`} style={{ marginRight: '10px' }} />
         {capitalize(provider)}
       </Button>

@@ -198,6 +198,7 @@ class AuthPage extends React.Component {
                   <div className="col-md-12 buttonContainer">
                     <Button
                       label="Submit"
+                      className="btn btn-secondary"
                       style={{ width: '100%' }}
                       primary
                       type="submit"

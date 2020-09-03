@@ -2,14 +2,18 @@
   display: flex;
   justify-content: space-around;
   text-align: center;
-  padding: 170px 0;
-  background: #FAFAFB;
+  /* padding: 170px 0; */
+  background: #333;
   height: 100vh;
   -webkit-font-smoothing: antialiased;
+  color:#FFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .wrapper {
-  height: 221px;
+  /* height: 221px; */
   width: 685px;
   text-align: center;
   /* background-image: url('../../images/background_empty.svg'); */
@@ -39,7 +43,7 @@
   margin: auto;
   padding: 13px 30px 0 30px;
   line-height: 18px;
-  color: #333740;
+  /* color: #333740; */
   font-size: 14px;
 }
 
@@ -50,9 +54,9 @@
   margin-bottom: 0;
   padding: 33px 15px 15px 15px;
   border-radius: 2px;
-  border-top: 2px solid #1C5DE7;
-  background-color: #FFFFFF;
-  box-shadow: 0 2px 4px 0 #E3E9F3;
+  border-top: 2px solid #333;
+  background-color: #464646;
+  box-shadow: 0 2px 4px 0 #333;
 }
 
 .loginButton {
@@ -72,7 +76,7 @@
 .linkContainer {
   padding-top: 18px;
    > a {
-    color: #262931;
+    /* color: #262931; */
     font-size: 13px;
     &:hover, &:active, &:focus {
       text-decoration: none;
@@ -82,7 +86,7 @@
 }
 
 .linkContainer, a {
-  color: #262931;
+  color: #FFF;
   font-size: 13px;
 }
 
@@ -92,7 +96,7 @@
 }
 
 .logoContainer, img {
-  height: 34px;
+  height: 75px;
 }
 
 .separator {
@@ -101,3 +105,20 @@
   margin: 10px 0;
   background-color: rgba(14, 22, 34, 0.04);
 }
+
+.facebook{
+  background: #4267B2;
+  color:#FFF;
+}
+
+.google{
+  background: #DB4437;
+  color:#FFF;
+  border:none;
+}
+
+.github{
+  background: #24292e;
+  color:#FFF;
+}
+

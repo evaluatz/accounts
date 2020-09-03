@@ -23,18 +23,7 @@ const auth = {
     return null;
   },
 
-  /**
-   * Clear all app storage
-   */
-  clearAppStorage() {
-    if (localStorage) {
-      localStorage.clear();
-    }
-
-    if (sessionStorage) {
-      sessionStorage.clear();
-    }
-  },
+  
 
   clearToken(tokenKey = TOKEN_KEY) {
     return auth.clear(tokenKey);
@@ -42,6 +31,15 @@ const auth = {
 
   clearUserInfo(userInfo = USER_INFO) {
     return auth.clear(userInfo);
+  },
+
+  /**
+   * Clear all app storage
+   */
+  clearAppStorage() {
+    auth.clearToken()
+    auth.clearUserInfo();
+    
   },
 
   /**
@@ -53,8 +51,6 @@ const auth = {
     if (cookies && cookies.get(key)) {
       return cookies.get(key) || null;
     }
-
-
     return null;
   },
 

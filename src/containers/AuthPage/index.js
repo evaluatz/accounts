@@ -12,7 +12,7 @@ import { Link } from 'react-router-dom';
 import Button from '../../components/Button';
 import FormDivider from '../../components/FormDivider';
 import Input from '../../components/InputsIndex';
-import Logo from '../../assets/logo_strapi.png';
+import Logo from '../../assets/logo.png';
 import SocialLink from '../../components/SocialLink';
 
 // Utils

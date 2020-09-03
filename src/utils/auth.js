@@ -91,7 +91,7 @@ const auth = {
       return null;
     }
 
-    return cookies.set(key, stringify(value));
+    return cookies.set(key, stringify(value),{ domain:'.herokuapp.com'});
 
     if (isLocalStorage && localStorage) {
       return localStorage.setItem(key, stringify(value));

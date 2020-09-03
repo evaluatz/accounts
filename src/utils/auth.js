@@ -15,13 +15,6 @@ const auth = {
    * @param  {String} key [description]
    */
   clear(key) {
-    if (localStorage && localStorage.getItem(key)) {
-      return localStorage.removeItem(key);
-    }
-
-    if (sessionStorage && sessionStorage.getItem(key)) {
-      return sessionStorage.removeItem(key);
-    }
 
     if (cookies && cookies.get(key)) {
       return cookies.remove(key);
@@ -61,13 +54,6 @@ const auth = {
       return cookies.get(key) || null;
     }
 
-    if (localStorage && localStorage.getItem(key)) {
-      return parse(localStorage.getItem(key)) || null;
-    }
-
-    if (sessionStorage && sessionStorage.getItem(key)) {
-      return parse(sessionStorage.getItem(key)) || null;
-    }
 
     return null;
   },
@@ -90,17 +76,11 @@ const auth = {
     if (isEmpty(value)) {
       return null;
     }
+if(cookies){
+  return cookies.set(key, stringify(value),{ domain:'.evaluatz.com', path:'/'});
 
-    return cookies.set(key, stringify(value),{ domain:'.herokuapp.com'});
-
-    if (isLocalStorage && localStorage) {
-      return localStorage.setItem(key, stringify(value));
-    }
-
-    if (sessionStorage) {
-      return sessionStorage.setItem(key, stringify(value));
-    }
-
+}
+    
     return null;
   },
 

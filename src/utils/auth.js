@@ -2,6 +2,9 @@ import { isEmpty } from 'lodash';
 import Cookies from 'universal-cookie';
 
 const cookies = new Cookies();
+const cookies_options =  { domain: '.evaluatz.com', path: '/' };
+
+
 
 const TOKEN_KEY = 'jwtToken';
 const USER_INFO = 'userInfo';
@@ -16,14 +19,14 @@ const auth = {
    */
   clear(key) {
 
-    if (cookies && cookies.get(key)) {
-      return cookies.remove(key);
+    if (cookies && cookies.get(key,cookies_options)) {
+      return cookies.remove(key, cookies_options);
     }
 
     return null;
   },
 
-  
+
 
   clearToken(tokenKey = TOKEN_KEY) {
     return auth.clear(tokenKey);
@@ -39,7 +42,7 @@ const auth = {
   clearAppStorage() {
     auth.clearToken()
     auth.clearUserInfo();
-    
+
   },
 
   /**
@@ -48,13 +51,14 @@ const auth = {
    * @return {String|Object}     Data from the storage
    */
   get(key) {
-    if (cookies && cookies.get(key)) {
-      return cookies.get(key) || null;
+    if (cookies && cookies.get(key, cookies_options)) {
+      return cookies.get(key, cookies_options) || null;
     }
     return null;
   },
 
   getToken(tokenKey = TOKEN_KEY) {
+    console.log("Try to auth")
     return auth.get(tokenKey);
   },
 
@@ -72,11 +76,11 @@ const auth = {
     if (isEmpty(value)) {
       return null;
     }
-if(cookies){
-  return cookies.set(key, stringify(value),{ domain:'.evaluatz.com', path:'/'});
+    if (cookies) {
+      return cookies.set(key, stringify(value), cookies_options);
 
-}
-    
+    }
+
     return null;
   },
 

@@ -26,7 +26,7 @@ class ConnectPage extends React.Component {
       match: { params: { provider } },
       location: { search },
     } = this.props;
-    const requestURL = `https://db.evaluatz.herokuapp.com/auth/${provider}/callback${search}`;
+    const requestURL = `https://evaluatz-db.herokuapp.com/auth/${provider}/callback${search}`;
 
     request(requestURL, { method: 'GET' })
       .then(response => {

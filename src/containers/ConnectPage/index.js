@@ -11,6 +11,9 @@ import PropTypes from 'prop-types';
 import auth from '../../utils/auth';
 import request from '../../utils/request';
 
+
+import './styles.css';
+
 class ConnectPage extends React.Component {
   // We only use this lifecycle because it's only mounted once and the saga already handle
   // the redirections depending on the API response

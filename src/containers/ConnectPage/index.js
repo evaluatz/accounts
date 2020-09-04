@@ -25,7 +25,7 @@ class ConnectPage extends React.Component {
     } = this.props;
     const requestURL = `https://evaluatz-db.herokuapp.com/auth/${provider}/callback${search}`;
 
-    request(requestURL, {method: 'GET' })
+    request(requestURL, { method: 'GET' })
       .then(response => {
         auth.setToken(response.jwt, true);
         auth.setUserInfo(response.user, true);
@@ -43,8 +43,18 @@ class ConnectPage extends React.Component {
 
   render() {
     return (
-      <div>
-        <h1>Retrieving your token and checking its validity</h1>
+      <div className="evaluatz_mask_load">
+        <div className="evaluatz-logo-animated-wrapper">
+          <div className="evaluatz-logo-animated">
+
+          </div>
+          <div className="evaluatz-logo-animated_E">
+            E
+      </div>
+          <div className="evaluatz-logo-animated_V">
+            V
+      </div>
+        </div>
       </div>
     );
   }

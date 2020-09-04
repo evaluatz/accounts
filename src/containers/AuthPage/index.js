@@ -9,6 +9,9 @@ import PropTypes from 'prop-types';
 import { findIndex, get, map, replace, set } from 'lodash';
 import { Link } from 'react-router-dom';
 
+import queryString from 'query-string';
+
+
 import Button from '../../components/Button';
 import FormDivider from '../../components/FormDivider';
 import Input from '../../components/InputsIndex';
@@ -26,6 +29,7 @@ class AuthPage extends React.Component {
   state = { value: {}, errors: [], didCheckErrors: false };
 
   componentDidMount() {
+    localStorage.setItem("source", replace(props.location.search, '?source=', ''));
     this.generateForm(this.props);
   }
 
@@ -40,16 +44,16 @@ class AuthPage extends React.Component {
 
     switch (this.props.match.params.authType) {
       case 'login':
-        requestURL = 'https://evaluatz-db.herokuapp.com/auth/local';
+        requestURL = 'https://accounts.evaluatz.com/auth/local';
         break;
       case 'register':
-        requestURL = 'https://evaluatz-db.herokuapp.com/auth/local/register';
+        requestURL = 'https://accounts.evaluatz.com/auth/local/register';
         break;
       case 'reset-password':
-        requestURL = 'https://evaluatz-db.herokuapp.com/auth/reset-password';
+        requestURL = 'https://accounts.evaluatz.com/auth/reset-password';
         break;
       case 'forgot-password':
-        requestURL = 'https://evaluatz-db.herokuapp.com/auth/forgot-password';
+        requestURL = 'https://accounts.evaluatz.com/auth/forgot-password';
         break;
       default:
     }
@@ -58,9 +62,7 @@ class AuthPage extends React.Component {
   };
 
   generateForm = props => {
-    const params = props.location.search
-      ? replace(props.location.search, '?code=', '')
-      : props.match.params.id;
+    const params = props.match.params.id;
     this.setForm(props.match.params.authType, params);
   };
 

@@ -83,7 +83,7 @@ class ImgPreview extends React.Component {
       reader.readAsDataURL(file);
     } else if (has(file, 'url')) {
       const isImg = this.isPictureType(file.name);
-      const imgURL = file.url[0] === '/' ?`https://evaluatz-db.herokuapp.com${file.url}` :file.url;
+      const imgURL = file.url[0] === '/' ?`https://accounts.evaluatz.com${file.url}` :file.url;
 
       this.setState({ isImg, imgURL });
     } else {

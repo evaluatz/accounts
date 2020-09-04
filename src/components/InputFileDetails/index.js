@@ -20,7 +20,7 @@ function InputFileDetails(props) {
     return <div />
   }
 
-  const url = startsWith(props.file.url, '/') ? `https://evaluatz-db.herokuapp.com${props.file.url}` : props.file.url;
+  const url = startsWith(props.file.url, '/') ? `https://accounts.evaluatz.com${props.file.url}` : props.file.url;
 
   return (
     <div className="inputFileDetails">

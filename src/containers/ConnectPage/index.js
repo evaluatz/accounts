@@ -26,12 +26,17 @@ class ConnectPage extends React.Component {
       match: { params: { provider } },
       location: { search },
     } = this.props;
-    const requestURL = `https://evaluatz-db.herokuapp.com/auth/${provider}/callback${search}`;
+    const requestURL = `https://accounts.evaluatz.com/auth/${provider}/callback${search}`;
 
     request(requestURL, { method: 'GET' })
       .then(response => {
         auth.setToken(response.jwt, true);
         auth.setUserInfo(response.user, true);
+
+        const subdomain = localStorage.getItem("source");
+        const url = "https://" + subdomain + ".evaluatz.com";
+        subdomain.length > 1 ?
+        window.location.href = url:
         this.redirectUser('/');
       })
       .catch(err => {

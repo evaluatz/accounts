@@ -18,7 +18,7 @@ class ProductPage extends React.Component {
   state = { products: [] };
 
   async componentDidMount() {
-    const requestURL = 'https://evaluatz-db.herokuapp.com/product';
+    const requestURL = 'https://accounts.evaluatz.com/product';
 
     const products = await request(requestURL, { method: 'GET' });
     this.setState({ products });

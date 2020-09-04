@@ -29,7 +29,7 @@ const TableRow = (props) => {
           // Get the first pictures for display
           const picture = isArray(props.data[header]) ? get(props.data, [header, '0', 'url'], '') : get(props.data, ['header', 'url'], '');
           // check if we need to add the strapiBackendURL if the upload provider is local
-          const src = startsWith(picture, '/') ? `https://evaluatz-db.herokuapp.com${picture}` : picture;
+          const src = startsWith(picture, '/') ? `https://accounts.evaluatz.com${picture}` : picture;
 
           return (
             <td key={header}>

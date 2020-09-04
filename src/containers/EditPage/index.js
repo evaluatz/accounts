@@ -36,7 +36,7 @@ class EditPage extends React.Component {
   async componentDidMount() {
     if (this.props.match.params.id !== 'create') {
       const { match: { params } } = this.props
-      const requestURL = `https://evaluatz-db.herokuapp.com/${params.contentType}/${params.id}`;
+      const requestURL = `https://accounts.evaluatz.com/${params.contentType}/${params.id}`;
       const data = await request(requestURL, { method: 'GET' });
 
       this.setState({ inititalData: data, modifiedData: data });
@@ -74,7 +74,7 @@ class EditPage extends React.Component {
     }, {});
 
     const method = params.id === 'create' ? 'POST' : 'PUT';
-    const requestURL =  params.id === 'create' ? `https://evaluatz-db.herokuapp.com/${params.contentType}`: `https://evaluatz-db.herokuapp.com/${params.contentType}/${params.id}`;
+    const requestURL =  params.id === 'create' ? `https://accounts.evaluatz.com/${params.contentType}`: `https://accounts.evaluatz.com/${params.contentType}/${params.id}`;
     return request(requestURL, { method, body: body })
       .then(resp => {
         // Send the upload request for each added file
@@ -102,7 +102,7 @@ class EditPage extends React.Component {
               //   console.log(pair[0]+ ', '+ pair[1]);
               // }
 
-              return request('https://evaluatz-db.herokuapp.com/upload', { method: 'POST', body, headers: {} }, false)
+              return request('https://accounts.evaluatz.com/upload', { method: 'POST', body, headers: {} }, false)
                 .catch(err => {
                   console.log('error upload', err.response);
               });

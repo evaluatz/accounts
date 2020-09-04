@@ -29,7 +29,7 @@ class AuthPage extends React.Component {
   state = { value: {}, errors: [], didCheckErrors: false };
 
   componentDidMount() {
-    localStorage.setItem("source", replace(props.location.search, '?source=', ''));
+    localStorage.setItem("source", replace(this.props.location.search, '?source=', ''));
     this.generateForm(this.props);
   }
 
